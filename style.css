@@ -1,7 +1,8 @@
+/* General Body Styles */
 body {
     font-family: 'Sarabun', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f8f9fa; /* Lighter gray for a cleaner look */
+    color: #343a40; /* Darker gray for better readability */
     line-height: 1.6;
     margin: 0;
 }
@@ -12,171 +13,265 @@ body {
     padding: 20px;
 }
 
-/* ส่วนแถบเมนูนำทาง */
+/* Navigation Bar */
 .navbar {
-    background-color: #e67e22; /* สีส้ม */
+    background-color: #ffffff;
     overflow: hidden;
     display: flex;
-    justify-content: center;
-    padding: 14px 16px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    justify-content: space-between; /* Spacing out logo and links */
+    align-items: center;
+    padding: 10px 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #e9ecef;
 }
 
-.navbar a {
-    color: white;
+.navbar .logo-link {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #e67e22;
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: #343a40;
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
     font-size: 17px;
-    transition: background-color 0.3s;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 5px;
 }
 
-.navbar a:hover {
-    background-color: #d35400;
+.nav-links a:hover, .nav-links a.active {
+    background-color: #e67e22;
+    color: white;
 }
 
-/* ส่วนหัว Hero */
+/* Hero Section */
 .hero-section {
     text-align: center;
-    padding: 50px 20px;
-    background-color: #fff;
-    margin-bottom: 20px;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    margin-bottom: 30px;
 }
 
 .logo {
     display: block;
-    margin: 0 auto 10px;
-    width: 200px;
+    margin: 0 auto 20px;
+    width: 180px;
     height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     color: #e67e22;
     margin-bottom: 10px;
 }
 
 .hero-section p {
     font-size: 1.2em;
-    color: #777;
+    color: #6c757d;
 }
 
-/* ส่วนสินค้า (Product Grid) */
+/* Section Title */
 .section-title {
     text-align: center;
-    font-size: 2em;
-    color: #333;
+    font-size: 2.5em;
+    color: #343a40;
     margin-top: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
 }
 
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #e67e22;
+    border-radius: 2px;
+}
+
+/* Product Grid */
 .product-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .product-card {
     background: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 300px;
+    overflow: hidden; /* Ensures content stays within rounded corners */
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
 }
 
 .product-image {
     width: 100%;
-    height: auto;
-    max-width: 250px;
-    display: block;
-    margin: 0 auto 15px;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+}
+
+.product-info {
+    padding: 20px;
 }
 
 .product-info h3 {
-    font-size: 1.5em;
+    font-size: 1.6em;
     margin-top: 0;
-    color: #333;
+    color: #343a40;
 }
 
 .product-info p {
-    font-size: 0.9em;
-    color: #555;
-    min-height: 40px;
+    font-size: 1em;
+    color: #6c757d;
+    min-height: 45px;
 }
 
 .price {
     margin: 15px 0;
+    font-size: 1.1em;
 }
 
 .original-price {
-    color: #999;
+    color: #adb5bd;
     text-decoration: line-through;
     margin-right: 10px;
-    font-size: 1em;
 }
 
 .sale-price {
-    color: #c0392b;
-    font-size: 1.8em;
+    color: #dc3545; /* A more vibrant red */
+    font-size: 1.9em;
     font-weight: bold;
 }
 
 .buy-button {
     background-color: #e67e22;
     color: white;
-    padding: 12px 25px;
+    padding: 12px 30px;
     border: none;
     cursor: pointer;
     font-size: 1.1em;
     border-radius: 5px;
     text-transform: uppercase;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .buy-button:hover {
     background-color: #d35400;
+    transform: scale(1.05);
 }
 
-/* ส่วนติดต่อเรา */
-.contact-section {
+/* Contact and About Sections */
+.content-section {
     background: #fff;
-    padding: 40px;
+    padding: 50px;
     margin: 40px auto;
     max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.contact-section h2 {
+.content-section h1, .content-section h2 {
     color: #e67e22;
     margin-bottom: 20px;
 }
 
-.contact-section a {
+.content-section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.content-section a {
     color: #e67e22;
     text-decoration: none;
-    transition: color 0.3s, text-decoration 0.3s;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-.contact-section a:hover {
+.content-section a:hover {
     text-decoration: underline;
+    color: #d35400;
 }
 
-/* ส่วนท้าย */
+/* Contact Form */
+.contact-form-section {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    color: #e67e22;
+    margin-bottom: 30px;
+}
+
+.contact-form-section label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.contact-form-section input[type="text"],
+.contact-form-section input[type="email"],
+.contact-form-section textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Important for padding and width */
+}
+
+.contact-form-section button {
+    width: 100%;
+    background-color: #e67e22;
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.contact-form-section button:hover {
+    background-color: #d35400;
+}
+
+/* Map Section */
+.map-section {
+    text-align: center;
+}
+
+.map-section iframe {
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+/* Site Footer */
 .site-footer {
     text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
+    padding: 30px;
+    background-color: #343a40;
+    color: #f8f9fa;
     margin-top: 50px;
 }
